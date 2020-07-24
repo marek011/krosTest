@@ -1,0 +1,26 @@
+.invoices-container {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.invoices-sidebar {
+  width: 20%;
+  height: 100%;
+  float: left;
+}
+
+.invoices-main {
+  float: left;
+  width: 80%;
+  input {
+    width: 100%;
+  }
+}
+
+.invoices-summary {
+  position: absolute;
+  height: 100px;
+  left: 0;
+  bottom: 0;
+}

@@ -1,0 +1,233 @@
+@import "~bootstrap/scss/functions";
+
+// Color system
+
+$blue: #0095da;
+$red: #da1f3c;
+$orange: #e86e30;
+$green: #00cd90;
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$kros-gray-levels: 100, 90, 80, 70, 60, 50, 40, 30, 20, 15, 10, 7, 5, 2;
+$kros-gray-100: $black;
+$kros-gray-90: #1a1a1a;
+$kros-gray-80: #333333;
+$kros-gray-70: #4d4d4d;
+$kros-gray-60: #666666;
+$kros-gray-50: #808080;
+$kros-gray-40: #999999;
+$kros-gray-30: #b3b3b3;
+$kros-gray-20: #cccccc;
+$kros-gray-15: #d9d9d9;
+$kros-gray-10: #e6e6e6;
+$kros-gray-7: #ededed;
+$kros-gray-5: #f2f2f2;
+$kros-gray-2: #fafafa;
+
+$kros-grays: ();
+$kros-grays: map-merge(
+  (
+    "100": $kros-gray-100,
+    "90": $kros-gray-90,
+    "80": $kros-gray-80,
+    "70": $kros-gray-70,
+    "60": $kros-gray-60,
+    "50": $kros-gray-50,
+    "40": $kros-gray-40,
+    "30": $kros-gray-30,
+    "20": $kros-gray-20,
+    "15": $kros-gray-15,
+    "10": $kros-gray-10,
+    "7": $kros-gray-7,
+    "5": $kros-gray-5,
+    "2": $kros-gray-2
+  ),
+  $kros-grays
+);
+
+@function kros-gray($key: "100") {
+  @return map-get($kros-grays, $key);
+}
+
+$kros-silver-levels: "hover", 100, 5;
+$kros-silver-hover: #5e6371;
+$kros-silver-100: #6f7585;
+$kros-silver-5: #f8f8f9;
+
+$kros-silvers: ();
+$kros-silvers: map-merge(
+  (
+    "hover": $kros-silver-hover,
+    "100": $kros-silver-100,
+    "5": $kros-silver-5
+  ),
+  $kros-silvers
+);
+
+@function kros-silver($key: "100") {
+  @return map-get($kros-silvers, $key);
+}
+
+$kros-blue-levels: "hover", 100, 70, 20, 15, 10;
+$kros-blue-hover: #007fb9;
+$kros-blue-100: $blue;
+$kros-blue-70: #4db5e5;
+$kros-blue-20: #cceaf8;
+$kros-blue-15: #d9effa;
+$kros-blue-10: #e6f5fc;
+
+$kros-blues: ();
+$kros-blues: map-merge(
+  (
+    "hover": $kros-blue-hover,
+    "100": $kros-blue-100,
+    "70": $kros-blue-70,
+    "20": $kros-blue-20,
+    "15": $kros-blue-15,
+    "10": $kros-blue-10
+  ),
+  $kros-blues
+);
+
+@function kros-blue($key: "100") {
+  @return map-get($kros-blues, $key);
+}
+
+$kros-red-levels: "hover", 100, 70, 50, 15, 10, 5;
+$kros-red-hover: #b91a33;
+$kros-red-100: $red;
+$kros-red-70: #e56277;
+$kros-red-50: #ec8f9d;
+$kros-red-15: #fadee2;
+$kros-red-10: #fce9ec;
+$kros-red-5: #fdf4f5;
+
+$kros-reds: ();
+$kros-reds: map-merge(
+  (
+    "hover": $kros-red-hover,
+    "100": $kros-red-100,
+    "70": $kros-red-70,
+    "50": $kros-red-50,
+    "15": $kros-red-15,
+    "10": $kros-red-10,
+    "5": $kros-red-5
+  ),
+  $kros-reds
+);
+
+@function kros-red($key: "100") {
+  @return map-get($kros-reds, $key);
+}
+
+$kros-greens: ();
+$kros-green-levels: "hover", 100, 70;
+$kros-green-hover: #00ae7a;
+$kros-green-70: #4bdbaf;
+$kros-green-100: $green;
+
+$kros-greens: map-merge(
+  (
+    "hover": $kros-green-hover,
+    "100": $kros-green-100,
+    "70": $kros-green-70,
+  ),
+  $kros-greens
+);
+
+@function kros-green($key: "100") {
+  @return map-get($kros-greens, $key);
+}
+
+$kros-orange-levels: "hover", 100, 70, 10;
+$kros-orange-hover: #c55e29;
+$kros-orange-100: $orange;
+$kros-orange-70: #ef996e;
+$kros-orange-10: #fdf0ea;
+
+$kros-oranges: ();
+$kros-oranges: map-merge(
+  (
+    "hover": $kros-orange-hover,
+    "100": $kros-orange-100,
+    "70": $kros-orange-70,
+    "10": $kros-orange-10
+  ),
+  $kros-oranges
+);
+
+@function kros-orange($key: "100") {
+  @return map-get($kros-oranges, $key);
+}
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+  (
+    "blue": $blue,
+    "indigo": $indigo,
+    "purple": $purple,
+    "pink": $pink,
+    "red": $red,
+    "orange": $orange,
+    "yellow": $yellow,
+    "green": $green,
+    "teal": $teal,
+    "cyan": $cyan,
+    "white": $white,
+    "gray": $gray-600,
+    "gray-dark": $gray-800
+  ),
+  $colors
+);
+
+$primary: $kros-blue-100;
+$secondary: $kros-silver-100;
+$success: $kros-green-100;
+$info: $cyan;
+$warning: $kros-orange-100;
+$danger: $kros-red-100;
+$light: $gray-100;
+$dark: $gray-800;
+
+@function kros-icon-color($key: "") {
+  @return map-get($theme-colors, $key);
+}
+
+$theme-colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark
+  ),
+  $theme-colors
+);

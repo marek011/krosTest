@@ -1,3 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
-html, body{min-height:100%;}
-body{height:100vh;}
+
+@import "~bootstrap/scss/bootstrap";
+@import "./colors";
+
+
+html, body {
+  min-height:100%;
+}
+
+body {
+  height:100vh;
+}

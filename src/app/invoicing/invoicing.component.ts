@@ -18,7 +18,7 @@ export class InvoicingComponent implements OnInit {
     return this.filteredInvoices.length - this.paidCount;
   }
 
-  private initNumberOfInvoices = 8;
+  private initNumberOfInvoices = 20;
 
   constructor(private invoicesService: InvoicesService) {
     this.invoices = this.invoicesService.generateInvoices(this.initNumberOfInvoices);

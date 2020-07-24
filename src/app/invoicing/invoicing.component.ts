@@ -22,8 +22,7 @@ export class InvoicingComponent implements OnInit {
 
   constructor(private invoicesService: InvoicesService) {
     this.invoices = this.invoicesService.generateInvoices(this.initNumberOfInvoices);
-    this.updateFilteredInvoices();
-    this.updatePaidCount();
+    this.filteredInvoicesChanged();
   }
 
   ngOnInit(): void {
@@ -41,12 +40,15 @@ export class InvoicingComponent implements OnInit {
       },
       ...this.invoices
     ];
-    this.updateFilteredInvoices();
-    this.updatePaidCount();
+    this.filteredInvoicesChanged();
   }
 
   filterTextChanged(filterText: string) {
     this.filterText = filterText;
+    this.filteredInvoicesChanged();
+  }
+
+  private filteredInvoicesChanged() {
     this.updateFilteredInvoices();
     this.updatePaidCount();
   }

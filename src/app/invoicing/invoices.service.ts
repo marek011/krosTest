@@ -6,6 +6,8 @@ import { Invoice } from './invoice';
 })
 export class InvoicesService {
 
+  private characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+
   constructor() { }
 
   generateInvoice(): Invoice {
@@ -29,9 +31,8 @@ export class InvoicesService {
 
   generateName(length: number = 8) {
     let name = '';
-    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     for (let i = 0; i < length; i++) {
-      name += characters.charAt(Math.floor(Math.random() * characters.length));
+      name += this.characters.charAt(Math.floor(Math.random() * this.characters.length));
     }
     return name;
   }

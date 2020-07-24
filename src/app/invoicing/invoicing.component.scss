@@ -5,14 +5,35 @@
 }
 
 .invoices-sidebar {
-  width: 20%;
+  width: 320px;
   height: 100%;
   float: left;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: gray;
+}
+
+.invoices-search {
+  height: 50px;
+  padding: 0.5rem;
+  input {
+    width: 100%;
+  }
+}
+
+.list-group {
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+.badge {
+  width: 70px;
+  float: right;
 }
 
 .invoices-main {
-  float: left;
-  width: 80%;
+  margin-left: 320px;
+  padding: 0.5rem;
   input {
     width: 100%;
   }
@@ -21,6 +42,10 @@
 .invoices-summary {
   position: absolute;
   height: 100px;
+  width: 320px;
   left: 0;
   bottom: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
 }

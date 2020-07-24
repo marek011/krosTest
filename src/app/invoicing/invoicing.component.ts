@@ -29,7 +29,18 @@ export class InvoicingComponent implements OnInit {
     return invoice.price >= 0.5;
   }
 
-  updatePaidCount() {
+  addInvoice(name: string) {
+    this.invoices = [
+      {
+        name,
+        price: this.invoicesService.generatePrice()
+      },
+      ...this.invoices
+    ];
+    this.updatePaidCount();
+  }
+
+  private updatePaidCount() {
     this.paidCount = 0;
     for (const invoice of this.invoices) {
       if (this.isPaid(invoice)) {

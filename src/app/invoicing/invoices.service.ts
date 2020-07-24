@@ -10,8 +10,8 @@ export class InvoicesService {
 
   generateInvoice(): Invoice {
     return {
-      name: this.generateName(8),
-      price: this.generatePrice(1)
+      name: this.generateName(),
+      price: this.generatePrice()
     };
   }
 
@@ -23,11 +23,11 @@ export class InvoicesService {
     return invoices;
   }
 
-  generatePrice(decimalPlaces: number): number {
+  generatePrice(decimalPlaces: number = 1): number {
     return Math.round(Math.random() * (10 ** decimalPlaces)) / (10 ** decimalPlaces);
   }
 
-  generateName(length: number) {
+  generateName(length: number = 8) {
     let name = '';
     const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     for (let i = 0; i < length; i++) {

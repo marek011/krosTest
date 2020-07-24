@@ -17,6 +17,6 @@
     </div>
   </div>
   <div class=invoices-main>
-    <input type=text placeholder="Pridať faktúru">
+    <input type=text placeholder="Pridať faktúru" #newInvoiceName (keyup.enter)="addInvoice(newInvoiceName.value)">
   </div>
 </div>

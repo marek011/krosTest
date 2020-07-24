@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'fakturacia', loadChildren: () => import('./invoicing/invoicing.module').then(m => m.InvoicingModule) },
+  { path: 'invoicing', loadChildren: () => import('./invoicing/invoicing.module').then(m => m.InvoicingModule) },
 ];
 
 @NgModule({

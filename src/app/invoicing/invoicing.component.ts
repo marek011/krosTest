@@ -9,16 +9,20 @@ import { InvoicesService } from './invoices.service';
 })
 export class InvoicingComponent implements OnInit {
 
+  filterText = '';
   invoices: Invoice[];
+  filteredInvoices: Invoice[];
+
   paidCount: number;
   get unpaidCount(): number {
-    return this.invoices.length - this.paidCount;
+    return this.filteredInvoices.length - this.paidCount;
   }
 
   private initNumberOfInvoices = 8;
 
   constructor(private invoicesService: InvoicesService) {
     this.invoices = this.invoicesService.generateInvoices(this.initNumberOfInvoices);
+    this.updateFilteredInvoices();
     this.updatePaidCount();
   }
 
@@ -37,12 +41,23 @@ export class InvoicingComponent implements OnInit {
       },
       ...this.invoices
     ];
+    this.updateFilteredInvoices();
     this.updatePaidCount();
+  }
+
+  filterTextChanged(filterText: string) {
+    this.filterText = filterText;
+    this.updateFilteredInvoices();
+    this.updatePaidCount();
+  }
+
+  private updateFilteredInvoices() {
+    this.filteredInvoices = this.invoices.filter(invoice => invoice.name.indexOf(this.filterText) > -1);
   }
 
   private updatePaidCount() {
     this.paidCount = 0;
-    for (const invoice of this.invoices) {
+    for (const invoice of this.filteredInvoices) {
       if (this.isPaid(invoice)) {
         this.paidCount++;
       }

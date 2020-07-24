@@ -1,10 +1,10 @@
 <div class="invoices-container">
   <div class="invoices-sidebar">
     <div class="invoices-search">
-      <input type=text placeholder="Hladať">
+      <input type=text placeholder="Hladať" #filterText (input)="filterTextChanged(filterText.value)">
     </div>
     <ul class="list-group">
-      <li *ngFor="let invoice of invoices; let index = index" class="list-group-item">
+      <li *ngFor="let invoice of filteredInvoices; let index = index" class="list-group-item">
         {{index}}. {{invoice.name}}
         <span class="badge" [ngClass]="{'badge-primary': !isPaid(invoice), 'badge-success': isPaid(invoice)}" >
           {{isPaid(invoice) ? "zaplatená" : "vytvorená"}}

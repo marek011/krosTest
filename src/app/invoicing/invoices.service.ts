@@ -15,6 +15,14 @@ export class InvoicesService {
     };
   }
 
+  generateInvoices(count: number): Invoice[] {
+    const invoices = [];
+    for (let invoiceInd = 0; invoiceInd < count; invoiceInd++) {
+      invoices.push(this.generateInvoice());
+    }
+    return invoices;
+  }
+
   generatePrice(decimalPlaces: number): number {
     return Math.round(Math.random() * (10 ** decimalPlaces)) / (10 ** decimalPlaces);
   }

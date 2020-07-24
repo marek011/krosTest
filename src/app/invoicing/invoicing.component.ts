@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Invoice } from './invoice';
+import { InvoicesService } from './invoices.service';
 
 @Component({
   selector: 'app-invoicing',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoicingComponent implements OnInit {
 
-  constructor() { }
+  invoices: Invoice[];
+  paidCount: number;
+  get unpaidCount(): number {
+    return this.invoices.length - this.paidCount;
+  }
+
+  private initNumberOfInvoices = 8;
+
+  constructor(private invoicesService: InvoicesService) {
+    this.invoices = this.invoicesService.generateInvoices(this.initNumberOfInvoices);
+    this.updatePaidCount();
+  }
 
   ngOnInit(): void {
   }
 
+  isPaid(invoice: Invoice): boolean {
+    return invoice.price >= 0.5;
+  }
+
+  updatePaidCount() {
+    this.paidCount = 0;
+    for (const invoice of this.invoices) {
+      if (this.isPaid(invoice)) {
+        this.paidCount++;
+      }
+    }
+  }
 }

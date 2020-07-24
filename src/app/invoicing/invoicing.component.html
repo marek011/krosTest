@@ -4,13 +4,16 @@
       <input type=text placeholder="Hladať">
     </div>
     <ul class="list-group">
-      <li class="list-group-item">0. asdfasdf <span class="badge badge-success">zaplatena</span></li>
-      <li class="list-group-item">1. gjirugjai <span class="badge badge-primary">vytvorena</span></li>
-      <li class="list-group-item">2. gjirugjai <span class="badge badge-primary">vytvorena</span></li>
+      <li *ngFor="let invoice of invoices; let index = index" class="list-group-item">
+        {{index}}. {{invoice.name}}
+        <span class="badge" [ngClass]="{'badge-primary': !isPaid(invoice), 'badge-success': isPaid(invoice)}" >
+          {{isPaid(invoice) ? "zaplatená" : "vytvorená"}}
+        </span>
+      </li>
     </ul>
     <div class="invoices-summary">
-      <h6>Uhradených: 5</h6>
-      <h6>Neuhradených: 5</h6>
+      <h6>Uhradených: {{paidCount}}</h6>
+      <h6>Neuhradených: {{unpaidCount}}</h6>
     </div>
   </div>
   <div class=invoices-main>
